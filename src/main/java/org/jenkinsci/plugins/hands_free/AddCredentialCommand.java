@@ -2,12 +2,10 @@ package org.jenkinsci.plugins.hands_free;
 
 import com.cloudbees.plugins.credentials.Credentials;
 import com.cloudbees.plugins.credentials.CredentialsScope;
-import com.cloudbees.plugins.credentials.CredentialsSelectHelper;
 import com.cloudbees.plugins.credentials.CredentialsStoreAction;
 import com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl;
 import hudson.AbortException;
 import hudson.Extension;
-import hudson.cli.CLICommand;
 import org.kohsuke.args4j.Argument;
 
 import java.io.PrintStream;
@@ -18,7 +16,7 @@ import java.io.PrintStream;
  * @since 12/07/14
  */
 @Extension
-public class AddCredentialCommand extends CLICommand {
+public class AddCredentialCommand extends AbstractCredentialCommand {
 
     @Override
     public String getShortDescription() {
@@ -52,12 +50,7 @@ public class AddCredentialCommand extends CLICommand {
         return 0;
     }
 
-    private CredentialsStoreAction.DomainWrapper getDomainWrapper() {
-        // reusing CredentialsSelectHelper to save implementing getWrapper myself
-        CredentialsSelectHelper helper = new CredentialsSelectHelper();
-        return helper.getWrapper();
-    }
-
+    @Override
     protected void printUsageSummary(PrintStream stderr) {
         stderr.println(
             "Adds a new global credential, using a username and password for authentication.\n" +
