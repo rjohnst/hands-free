@@ -1,7 +1,8 @@
-package org.jenkinsci.plugins.hands_free;
+package org.jenkinsci.plugins.hands_free.credentials;
 
 import com.cloudbees.plugins.credentials.CredentialsStoreAction;
 import hudson.Extension;
+import org.jenkinsci.plugins.hands_free.credentials.AbstractCredentialCommand;
 import org.kohsuke.args4j.Argument;
 
 import java.util.ArrayList;

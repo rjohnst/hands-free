@@ -1,4 +1,4 @@
-package org.jenkinsci.plugins.hands_free;
+package org.jenkinsci.plugins.hands_free.credentials;
 
 import com.cloudbees.plugins.credentials.Credentials;
 import com.cloudbees.plugins.credentials.CredentialsScope;
