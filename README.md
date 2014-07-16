@@ -7,10 +7,13 @@ Here's a list of things it does:
 * add-credential: adding global credentials (for SCM authentication)
 * find-credential-id: find the id of a credential
 
-And the TODOs:
-* output id of newly added credential
+Improvements:
+* add-credential: output id of newly added credential
+
+New Features:
 * set path to the git executable
-* add view (optionally to a subview)
+* add view (optionally to a nested view)
 * add/remove job from view
 * set job filter on a view
 * modify description of a view
+* add a lock (locks-and-latches)
