@@ -5,13 +5,13 @@ A collection of extensions and plugins that aid with automating all the manual c
 
 Here's a list of things it does:
 * add-credential: adding global credentials (for SCM authentication)
+* add-git-install: adds a new git installation
 * find-credential-id: find the id of a credential
 
 Improvements:
 * add-credential: output id of newly added credential
 
 New Features:
-* set path to the git executable
 * add view (optionally to a nested view)
 * add/remove job from view
 * set job filter on a view
