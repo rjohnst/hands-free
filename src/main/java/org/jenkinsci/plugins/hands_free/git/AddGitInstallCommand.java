@@ -4,6 +4,7 @@ import hudson.Extension;
 import hudson.cli.CLICommand;
 import hudson.plugins.git.GitTool;
 import hudson.plugins.git.GitTool.DescriptorImpl;
+import hudson.security.Permission;
 import hudson.tools.ToolProperty;
 import jenkins.model.Jenkins;
 import org.kohsuke.args4j.Argument;
@@ -35,7 +36,10 @@ public class AddGitInstallCommand extends CLICommand {
 
     @Override
     protected int run() throws Exception {
-        DescriptorImpl descriptor = (DescriptorImpl) Jenkins.getInstance().getDescriptor(GitTool.class);
+        Jenkins jenkins = Jenkins.getInstance();
+        jenkins.checkPermission(Permission.CONFIGURE);
+
+        DescriptorImpl descriptor = (DescriptorImpl) jenkins.getDescriptor(GitTool.class);
         GitTool[] installations = descriptor.getInstallations();
 
         GitTool newInstallation = new GitTool(name, home, Collections.<ToolProperty<?>>emptyList());
